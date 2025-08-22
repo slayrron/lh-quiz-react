@@ -1,11 +1,9 @@
 import { useState } from "react";
-import {questionList} from "../datas/questionList";
 import "../styles/image.css"
 
-function Question() {
+function Question({q}) {
 
     const [goodAnswer, setGoodAnswer] = useState("")
-    const q = questionList[0]
 
     return (
         <div>
