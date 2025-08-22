@@ -1,19 +1,27 @@
 import { useState } from "react";
+import {questionList} from "../datas/questionList";
+import "../styles/image.css"
 
 function Question() {
 
     const [goodAnswer, setGoodAnswer] = useState("")
+    const q = questionList[0]
+
     return (
         <div>
+            <img src={q.image} className="question-img"></img>
             <div>
-                Hors agglomération, la limitation est à 80 km/h
+                {q.question}
             </div>
             <div>
-                <button onClick={() => setGoodAnswer(true)}>Vrai</button>
-                <button onClick={() => setGoodAnswer(false)}>Faux</button>
+                {q.answers.map(((answer,index) => (
+                    index === q.goodAnswerIndex ? 
+                        <button onClick={() => setGoodAnswer(true)}>{answer}</button>
+                        : <button onClick={() => setGoodAnswer(false)}>{answer}</button>
+                )))}
             </div>
             {goodAnswer && <div>Bonne réponse !</div>}
-            {goodAnswer === false && <div>Mauvaise réponse...</div>}
+            {goodAnswer === false && <div>Mauvaise réponse, la bonne réponse était : {q.answers[q.goodAnswerIndex]}</div>}
         </div>
     )
 }
