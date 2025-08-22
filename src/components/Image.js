@@ -1,9 +1,11 @@
 import App from "./App";
+import imageTest from "../assets/0.jpg"
+import "../styles/image.css"
 
 function Image() {
     return (
         <div>
-            IMAGE
+            <img src={imageTest} className="question-img"></img>
         </div>
     )
 }
