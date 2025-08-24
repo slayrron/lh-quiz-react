@@ -1,9 +1,7 @@
 import { useState } from "react";
 import "../styles/image.css"
 
-function Question({q}) {
-
-    const [goodAnswer, setGoodAnswer] = useState("")
+function Question({q, goodAnswer, setGoodAnswer, setIsQuestionAnswered}) {
 
     return (
         <div>
@@ -18,6 +16,7 @@ function Question({q}) {
                         : <button onClick={() => setGoodAnswer(false)}>{answer}</button>
                 )))}
             </div>
+            {goodAnswer !== "" && setIsQuestionAnswered(true)}
             {goodAnswer && <div>Bonne réponse !</div>}
             {goodAnswer === false && <div>Mauvaise réponse, la bonne réponse était : {q.answers[q.goodAnswerIndex]}</div>}
         </div>
