@@ -1,6 +1,9 @@
 import img0 from "../assets/0.jpg"
 import img1 from "../assets/1.jpg"
 import img2 from "../assets/2.jpg"
+import img3 from "../assets/3.jpg"
+import img4 from "../assets/4.jpg"
+import img5 from "../assets/5.jpg"
 
 export const questionList = [
     {
@@ -23,5 +26,27 @@ export const questionList = [
         image: img2,
         answers: ["Tourner à droite", "Continuer tout droit", "Tourner à gauche", "Faire un demi-tour"],
         goodAnswerIndex: [2, 3]
-    }
+    },
+    {
+        id : 3,
+        question: "Un piéton est distrait sur le passage piéton",
+        image: img3,
+        answers: ["Je klaxonne", "Je le contourne en chevauchant la voie d'en face", "J'attends"],
+        goodAnswerIndex: [2]
+    },
+    {
+        id : 4,
+        question: "Je peux passer",
+        image: img4,
+        answers: ["Oui", "Non"],
+        goodAnswerIndex: [1]
+    },
+    {
+        id : 5,
+        question: "Je peux tourner à gauche",
+        image: img5,
+        answers: ["Oui", "Non"],
+        goodAnswerIndex: [1]
+    },
+
 ]
