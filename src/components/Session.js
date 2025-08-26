@@ -3,6 +3,7 @@ import { useState } from "react";
 import {questionList} from "../datas/questionList";
 
 function Session() {
+    const [selectedAnswers, updateSelectedAnswers] = useState([])
     const [goodAnswer, setGoodAnswer] = useState("")
     const [isQuestionAnswered, setIsQuestionAnswered] = useState(false)
     const [index, setIndex] = useState(0)
@@ -12,6 +13,7 @@ function Session() {
     }
 
     function getNextQuestion() {
+        updateSelectedAnswers([])
         setGoodAnswer("")
         setIsQuestionAnswered(false)
         setIndex(index+1)
@@ -20,7 +22,9 @@ function Session() {
     return (
         <div>
             <Question 
-                q={questionList[index]} 
+                q={questionList[index]}
+                selectedAnswers={selectedAnswers}
+                updateSelectedAnswers={updateSelectedAnswers}
                 goodAnswer={goodAnswer} 
                 setGoodAnswer={setGoodAnswer} 
                 setIsQuestionAnswered={setIsQuestionAnswered}
