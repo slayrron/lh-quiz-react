@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../styles/image.css"
+import "../styles/question.css"
 
-function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoodAnswer, setIsQuestionAnswered}) {
+function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoodAnswer, isQuestionAnswered, setIsQuestionAnswered}) {
 
     const toggle = (value) => {
         updateSelectedAnswers((prev) =>
@@ -24,19 +24,19 @@ function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoo
             <div>
                 {q.question}
             </div>
-            <div>
+            <div className="answers">
                 {q.answers.map(((answer,index) => (
-                    <label>
+                    <label className="checkbox-button">
                         <input
                             type="checkbox"
                             checked={selectedAnswers.includes(index)}
                             onChange={() => toggle(index)}
                         />
-                        {answer}
+                        <span>{answer}</span>
                     </label>
                 )))}
             </div>
-            <button onClick={checkAnswers}>Valider</button>
+            {!isQuestionAnswered && <button onClick={checkAnswers}>Valider</button>}
 
             {goodAnswer && <div>Bonne réponse !</div>}
             {goodAnswer === false && 

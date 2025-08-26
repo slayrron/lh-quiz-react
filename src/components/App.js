@@ -7,8 +7,8 @@ function App() {
 
   return (
     <div className="App">
-      {!isStarted && <button onClick={() => setIsStarted(true)}>Start</button>}
-      {isStarted && <Session/>}
+      {!isStarted && <button onClick={() => setIsStarted(true)}>Démarrer une session</button>}
+      {isStarted && <Session setIsStarted={setIsStarted}/>}
     </div>
   );
 }
