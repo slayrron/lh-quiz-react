@@ -1,0 +1,9 @@
+.title {
+    display: block;
+    text-align: center;
+}
+
+.start-button {
+    display: block;
+    margin: auto;
+}
