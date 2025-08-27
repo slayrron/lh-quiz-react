@@ -1,7 +1,6 @@
-import { useState } from "react";
 import "../styles/question.css"
 
-function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoodAnswer, isQuestionAnswered, setIsQuestionAnswered}) {
+function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoodAnswer, isQuestionAnswered, setIsQuestionAnswered, nbHearts, setNbHearts}) {
 
     const toggle = (value) => {
         updateSelectedAnswers((prev) =>
@@ -12,11 +11,13 @@ function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoo
     };
     
     function checkAnswers() {
-        setGoodAnswer(JSON.stringify(selectedAnswers.sort()) === JSON.stringify(q.goodAnswerIndex.sort()))
+        setGoodAnswer(_ => {
+            const answerbool = JSON.stringify(selectedAnswers.sort()) === JSON.stringify(q.goodAnswerIndex.sort())
+            setNbHearts(nbHearts - (answerbool === false))
+            return answerbool
+        })
         setIsQuestionAnswered(true)
     }
-
-
 
     return (
         <div>

@@ -4,6 +4,9 @@ import img2 from "../assets/2.jpg"
 import img3 from "../assets/3.jpg"
 import img4 from "../assets/4.jpg"
 import img5 from "../assets/5.jpg"
+import img6 from "../assets/6.jpg"
+import img7 from "../assets/7.jpg"
+import img8 from "../assets/8.jpg"
 
 export const questionList = [
     {
@@ -46,6 +49,27 @@ export const questionList = [
         question: "Je peux tourner à gauche",
         image: img5,
         answers: ["Oui", "Non"],
+        goodAnswerIndex: [1]
+    },
+    {
+        id : 6,
+        question: "Le sens interdit s'applique",
+        image: img6,
+        answers: ["Immédiatement", "Dans 50m", "Dans 150m"],
+        goodAnswerIndex: [0]
+    },
+    {
+        id : 7,
+        question: "Je suis en agglomération, je devrai céder le passage",
+        image: img7,
+        answers: ["Immédiatement", "Dans 50m", "Dans 150m"],
+        goodAnswerIndex: [1]
+    },
+    {
+        id : 8,
+        question: "Je devrai céder le passage",
+        image: img8,
+        answers: ["Dans 50m", "Dans 150m"],
         goodAnswerIndex: [1]
     },
 

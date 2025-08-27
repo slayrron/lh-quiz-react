@@ -2,3 +2,9 @@
     padding: 20px;
     background-color: #ffb756;
 }
+
+.nbQuestion {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+}

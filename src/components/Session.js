@@ -3,18 +3,22 @@ import { useState } from "react";
 import {questionList} from "../datas/questionList";
 import "../styles/session.css"
 
+import heartimg from "../assets/heart.png"
+
 function Session({setIsStarted}) {
 
     const [selectedAnswers, updateSelectedAnswers] = useState([])
     const [goodAnswer, setGoodAnswer] = useState("")
     const [isQuestionAnswered, setIsQuestionAnswered] = useState(false)
 
-    const [nbQuestion, setNbQuestion] = useState(1)
+    const [nQuestion, setNQuestion] = useState(1)
 
     const [questionsCopy, setQuestionCopy] = useState(questionList.slice())
     const [index, setIndex] = useState(Math.floor(Math.random() * questionsCopy.length))
-    
 
+    const [nbHearts, setNbHearts] = useState(5)
+    
+    const sessionSize = 8
     function getNextQuestion() {
         updateSelectedAnswers([])
         setGoodAnswer("")
@@ -25,25 +29,29 @@ function Session({setIsStarted}) {
             setIndex(Math.floor(Math.random() * newQuestions.length))
             return newQuestions
         })
-        setNbQuestion(nbQuestion+1)
+        setNQuestion(nQuestion+1)
     }
 
     return (
         <div>
             <div className="banner">
-                Question {nbQuestion} / 3
+                <img src={heartimg}/><span>{nbHearts}</span>
+                <span className="nbQuestion">Question {nQuestion} / {sessionSize}</span>
             </div>
             <Question 
                 q={questionsCopy[index]}
                 selectedAnswers={selectedAnswers}
                 updateSelectedAnswers={updateSelectedAnswers}
-                goodAnswer={goodAnswer} 
+                goodAnswer={goodAnswer}
                 setGoodAnswer={setGoodAnswer}
                 isQuestionAnswered={isQuestionAnswered}
                 setIsQuestionAnswered={setIsQuestionAnswered}
+                nbHearts={nbHearts}
+                setNbHearts={setNbHearts}
             />
-            {(isQuestionAnswered && nbQuestion < 3) && <button onClick={getNextQuestion}>Suivant</button>}
-            {(isQuestionAnswered && nbQuestion >= 3) && 
+            {nbHearts === 0 && <div>Plus de vie ! <button onClick={() => setIsStarted(false)}>Revenir au menu principal</button></div>}
+            {(nbHearts !== 0 && isQuestionAnswered && nQuestion < sessionSize) && <button onClick={getNextQuestion}>Suivant</button>}
+            {(nbHearts !== 0 && isQuestionAnswered && nQuestion >= sessionSize) && 
                 <div>
                     <span>Terminé !</span>
                     <button onClick={() => setIsStarted(false)}>Revenir au menu principal</button>
