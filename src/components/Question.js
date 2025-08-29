@@ -22,7 +22,7 @@ function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoo
 
     return (
         <div>
-            <img src={q.image} className="question-img"></img>
+            <img src={q.image} alt="Image question" className="question-img"></img>
             <div>
                 {q.question}
             </div>

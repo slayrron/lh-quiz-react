@@ -3,10 +3,28 @@
     background-color: #ffb756;
 }
 
+.heartlogo {
+    height: 24px;
+    width: 24px;
+}
+
+.hearttext {
+    position: absolute;
+    margin: 0px 5px;
+    font-size: 25px;
+}
+
 .nbQuestion {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    font-size: 20px
+}
+
+.backlogo {
+    position: absolute;
+    right: 0%;
+    transform: translateX(-50%);
 }
 
 .btnSuivant {

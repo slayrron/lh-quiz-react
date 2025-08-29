@@ -2,6 +2,7 @@ import Question from "./Question";
 import { useState } from "react";
 import {questionList} from "../datas/questionList";
 import "../styles/session.css"
+import back from "../assets/croix.png"
 
 import heartimg from "../assets/heart.png"
 
@@ -10,7 +11,6 @@ function Session({setIsStarted}) {
     const [selectedAnswers, updateSelectedAnswers] = useState([])
     const [goodAnswer, setGoodAnswer] = useState("")
     const [isQuestionAnswered, setIsQuestionAnswered] = useState(false)
-    const [disabledCheckbox, setDisabledCheckbox] = useState(false)
 
     const [nQuestion, setNQuestion] = useState(1)
 
@@ -36,8 +36,9 @@ function Session({setIsStarted}) {
     return (
         <div>
             <div className="banner">
-                <img src={heartimg}/><span>{nbHearts}</span>
+                <img src={heartimg} className="heartlogo"/><span className="hearttext">{nbHearts}</span>
                 <span className="nbQuestion">Question {nQuestion} / {sessionSize}</span>
+                <img src={back} onClick={() => setIsStarted(false)} className="backlogo"/>
             </div>
             <Question 
                 q={questionsCopy[index]}
