@@ -10,6 +10,7 @@ function Session({setIsStarted}) {
     const [selectedAnswers, updateSelectedAnswers] = useState([])
     const [goodAnswer, setGoodAnswer] = useState("")
     const [isQuestionAnswered, setIsQuestionAnswered] = useState(false)
+    const [disabledCheckbox, setDisabledCheckbox] = useState(false)
 
     const [nQuestion, setNQuestion] = useState(1)
 
@@ -50,11 +51,11 @@ function Session({setIsStarted}) {
                 setNbHearts={setNbHearts}
             />
             {nbHearts === 0 && <div>Plus de vie ! <button onClick={() => setIsStarted(false)}>Revenir au menu principal</button></div>}
-            {(nbHearts !== 0 && isQuestionAnswered && nQuestion < sessionSize) && <button onClick={getNextQuestion}>Suivant</button>}
+            {(nbHearts !== 0 && isQuestionAnswered && nQuestion < sessionSize) && <button onClick={getNextQuestion} className="btnSuivant">Suivant</button>}
             {(nbHearts !== 0 && isQuestionAnswered && nQuestion >= sessionSize) && 
                 <div>
                     <span>Terminé !</span>
-                    <button onClick={() => setIsStarted(false)}>Revenir au menu principal</button>
+                    <button onClick={() => setIsStarted(false)} className="btnSuivant">Revenir au menu principal</button>
                 </div>
             }
         </div>

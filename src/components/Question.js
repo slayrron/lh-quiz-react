@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../styles/question.css"
 
 function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoodAnswer, isQuestionAnswered, setIsQuestionAnswered, nbHearts, setNbHearts}) {
@@ -32,16 +33,19 @@ function Question({q, selectedAnswers, updateSelectedAnswers, goodAnswer, setGoo
                             type="checkbox"
                             checked={selectedAnswers.includes(index)}
                             onChange={() => toggle(index)}
+                            disabled={isQuestionAnswered}
                         />
-                        <span>{answer}</span>
+                        {!isQuestionAnswered && <span className="answer">{answer}</span>}
+                        {(isQuestionAnswered && q.goodAnswerIndex.includes(index)) && <span className="goodAnswer">{answer}</span>}
+                        {(isQuestionAnswered && !q.goodAnswerIndex.includes(index)) && <span className="badAnswer">{answer}</span>}
                     </label>
                 )))}
             </div>
-            {!isQuestionAnswered && <button onClick={checkAnswers}>Valider</button>}
+            {!isQuestionAnswered && <button onClick={checkAnswers} className="btnValider">Valider</button>}
 
-            {goodAnswer && <div>Bonne réponse !</div>}
+            {goodAnswer && <div style={{color: "green"}}>Bonne réponse !</div>}
             {goodAnswer === false && 
-                <div>Mauvaise réponse, les bonnes réponses étaient : <br/>
+                <div style={{color: "red"}}>Mauvaise réponse, les bonnes réponses étaient : <br/>
                     {q.goodAnswerIndex.map((index) => (<span>{q.answers[index]}<br/></span>))}
                 </div>
             }

@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       {!isStarted && 
         <div>
-          <h1 className="title">Unopermiso</h1>
+          <h1 className="title">Unocodigo</h1>
           <button className="start-button" onClick={() => setIsStarted(true)}>Démarrer une session</button>
         </div>
       }

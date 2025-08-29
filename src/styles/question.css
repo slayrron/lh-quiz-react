@@ -26,14 +26,34 @@
     border-radius: 10px;
 }
 
-.checkbox-button input:hover + span {
+.checkbox-button input:hover + .answer {
     background-color: #c0c0c0;
 }
 
-.checkbox-button input:checked + span {
+.checkbox-button input:checked + .answer {
     background-color: #ffe9c9;
 }
 
-.checkbox-button input:checked:hover + span {
+.checkbox-button input:checked:hover + .answer {
   background-color: #c08125;
+}
+
+.checkbox-button .goodAnswer {
+    background-color: #00ff00;
+}
+
+.checkbox-button .badAnswer {
+    background-color: red;
+}
+
+.btnValider {
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+    padding: 2px 20px;
+    font-size: 20px;
+}
+
+.btnValider:hover {
+    background-color: #c0c0c0;
 }
