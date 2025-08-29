@@ -1,10 +1,10 @@
-# UNOCODINGO
+# UNOCODIGO
 
 Quiz reprenant des questions du code de la route. Plusieurs réponses sont possibles.
 
-![Question] (public/questionNonRepondue.png)
-![QuestionVraie] (public/questionVraie.png)
-![QuestionFausse] (public/questionFausse.png)
+![QuestionVraie](src/assets/questionVraie.png)
+![QuestionFausse](src/assets/questionFausse.png)
+![Question](src/assets/questionNonRepondue.png)
 
 ## Run the Project
 
@@ -17,5 +17,5 @@ In the project directory, you can run:
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
-### Crédits
+## Crédits
 <a href="https://www.flaticon.com/fr/icones-gratuites/bouton-de-fermeture" title="bouton de fermeture icônes">Bouton de fermeture icônes créées par Yuju - Flaticon</a>

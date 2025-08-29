@@ -6,7 +6,7 @@ import back from "../assets/croix.png"
 
 import heartimg from "../assets/heart.png"
 
-function Session({setIsStarted}) {
+function Session({setIsStarted, setIsSessionDone}) {
 
     const [selectedAnswers, updateSelectedAnswers] = useState([])
     const [goodAnswer, setGoodAnswer] = useState("")
@@ -20,6 +20,7 @@ function Session({setIsStarted}) {
     const [nbHearts, setNbHearts] = useState(5)
     
     const sessionSize = 8
+
     function getNextQuestion() {
         updateSelectedAnswers([])
         setGoodAnswer("")
@@ -31,6 +32,11 @@ function Session({setIsStarted}) {
             return newQuestions
         })
         setNQuestion(nQuestion+1)
+    }
+
+    function finishSession() {
+        setIsSessionDone(true)
+        setIsStarted(false)
     }
 
     return (
@@ -56,7 +62,7 @@ function Session({setIsStarted}) {
             {(nbHearts !== 0 && isQuestionAnswered && nQuestion >= sessionSize) && 
                 <div>
                     <span>Terminé !</span>
-                    <button onClick={() => setIsStarted(false)} className="btnSuivant">Revenir au menu principal</button>
+                    <button onClick={finishSession} className="btnSuivant">Revenir au menu principal</button>
                 </div>
             }
         </div>
