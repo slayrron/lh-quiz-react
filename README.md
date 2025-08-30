@@ -1,7 +1,12 @@
 # UNOCODIGO
 
-Quiz reprenant des questions du code de la route. Plusieurs réponses sont possibles.
+Inspiré de Duolingo, Unocodigo propose différents quiz reprenant des questions du code de la route.
+###
+Terminer les sessions précédentes pour avancer :
+![path](src/assets/path.png)
 
+###
+Terminer les sessions en limitant les fautes. Plusieurs réponses sont possibles.
 ![QuestionVraie](src/assets/questionVraie.png)
 ![QuestionFausse](src/assets/questionFausse.png)
 ![Question](src/assets/questionNonRepondue.png)

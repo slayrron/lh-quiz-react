@@ -1,9 +1,28 @@
+.road {
+    background-image:url("../assets/fond.png");
+    background-position: center;
+    height: 700px;
+    padding: 20px;
+}
 .title {
     display: block;
+    margin: 0;
+    padding: 20px;
     text-align: center;
+    background-color: #ffbd59;
 }
 
 .start-button {
     display: block;
-    margin: auto;
+    position: relative;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.left {
+    left: 35%;
+}
+
+.right {
+    left: 65%
 }

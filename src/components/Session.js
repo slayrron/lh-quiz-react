@@ -6,7 +6,7 @@ import back from "../assets/croix.png"
 
 import heartimg from "../assets/heart.png"
 
-function Session({setIsStarted, setIsSessionDone}) {
+function Session({setIsStarted, category, setIsSessionDone}) {
 
     const [selectedAnswers, updateSelectedAnswers] = useState([])
     const [goodAnswer, setGoodAnswer] = useState("")
@@ -14,19 +14,19 @@ function Session({setIsStarted, setIsSessionDone}) {
 
     const [nQuestion, setNQuestion] = useState(1)
 
-    const [questionsCopy, setQuestionCopy] = useState(questionList.slice())
-    const [index, setIndex] = useState(Math.floor(Math.random() * questionsCopy.length))
+    const [questionsSubset, setQuestionsSubset] = useState(questionList.slice().filter((obj) => obj.category.includes(category)))
+    const [index, setIndex] = useState(Math.floor(Math.random() * questionsSubset.length))
 
     const [nbHearts, setNbHearts] = useState(5)
-    
-    const sessionSize = 8
+
+    const sessionSize = 5
 
     function getNextQuestion() {
         updateSelectedAnswers([])
         setGoodAnswer("")
         setIsQuestionAnswered(false)
 
-        setQuestionCopy(prev => {
+        setQuestionsSubset(prev => {
             const newQuestions = prev.filter((_, i) => i !== index)
             setIndex(Math.floor(Math.random() * newQuestions.length))
             return newQuestions
@@ -47,7 +47,7 @@ function Session({setIsStarted, setIsSessionDone}) {
                 <img src={back} onClick={() => setIsStarted(false)} className="backlogo"/>
             </div>
             <Question 
-                q={questionsCopy[index]}
+                q={questionsSubset[index]}
                 selectedAnswers={selectedAnswers}
                 updateSelectedAnswers={updateSelectedAnswers}
                 goodAnswer={goodAnswer}
